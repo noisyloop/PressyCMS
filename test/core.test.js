@@ -23,6 +23,17 @@ test('dangerous URL schemes are neutralised', () => {
   assert.match(md('[x](https://example.com)'), /rel="noopener noreferrer"/);
 });
 
+test('safeUrl normalises URLs the way browsers do before checking the scheme', () => {
+  for (const url of ['java\tscript:alert(1)', 'java\nscript:alert(1)', 'java\rscript:alert(1)', '\x01javascript:alert(1)', ' \x00javascript:alert(1)', '/\\evil.example', '\\\\evil.example', '\\/evil.example']) {
+    assert.strictEqual(core.safeUrl(url), '#', JSON.stringify(url));
+  }
+  assert.match(md('[x](<java\tscript:alert(1)>)'), /href="#"/);
+  for (const block of ['button', 'card', 'hero']) {
+    const html = md(`:::${block} title="x" cta="x" href="java\tscript:alert(1)"\n:::`);
+    assert.ok(!/script:/.test(html), block);
+  }
+});
+
 test('block attributes are escaped', () => {
   const html = md(':::callout title="<img src=x onerror=alert(1)>"\nhi\n:::');
   assert.ok(html.includes('&lt;img'));

@@ -24,12 +24,15 @@
 
   // Only relative URLs, fragments and a short list of schemes survive.
   // Everything else (javascript:, data:, vbscript:, …) collapses to '#'.
+  // Browsers drop tabs/newlines anywhere in a URL and control characters at
+  // either end, so normalise the same way first — otherwise "java\tscript:"
+  // passes the scheme check and still runs as javascript:.
   function safeUrl(url) {
-    const u = String(url == null ? '' : url).trim();
+    const u = String(url == null ? '' : url).replace(/[\t\n\r]/g, '').replace(/^[\x00-\x20]+|[\x00-\x20]+$/g, '');
     if (!u) return '#';
     if (/^(https?:|mailto:)/i.test(u)) return u;
     if (/^[a-z][a-z0-9+.-]*:/i.test(u)) return '#';
-    if (u.startsWith('//')) return '#';
+    if (/^[\/\\]{2}/.test(u)) return '#'; // protocol-relative; browsers read "\" as "/"
     return u;
   }
 

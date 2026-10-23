@@ -4,11 +4,11 @@
 |---|---|
 | **Runtime** | The deployed site is static files. No PHP, database, login form, sessions or write API exist on the server. |
 | **Authoring** | Changes arrive as Git commits / PRs, protected by GitHub auth, 2FA, branch protection and review. |
-| **Markdown** | Raw HTML is escaped (`markdown.allowRawHtml: false`). Link and image URLs pass through `safeUrl()`, which allows only relative URLs, `http(s):` and `mailto:` — `javascript:`, `data:`, `vbscript:` and protocol-relative URLs become `#`. External links get `rel="noopener noreferrer"`. |
+| **Markdown** | Raw HTML is escaped (`markdown.allowRawHtml: false`). Link and image URLs pass through `safeUrl()`, which allows only relative URLs, `http(s):` and `mailto:` — `javascript:`, `data:`, `vbscript:` and protocol-relative URLs (including `/\host`) become `#`. URLs are normalised like a browser would (tabs/newlines removed, control characters trimmed) before the check, so `java⇥script:` can't slip through. External links get `rel="noopener noreferrer"`. |
 | **Front matter** | YAML/JSON only; executable (`---js`) front matter is rejected. Slugs are validated against `^[a-z0-9-]+$` and reserved names. |
 | **Templates** | `{{ }}` escapes by default; JSON-LD is serialised so it can't close its `<script>` tag. |
 | **Plugins** | Build-time only. Declared permissions are enforced. File output is confined to `dist/`. |
-| **Headers** | `_headers` sets a strict CSP (`script-src 'self'`, no inline scripts, no third-party origins), HSTS, `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`, COOP. `/admin/` is `noindex`. |
+| **Headers** | `_headers` sets a strict CSP (`script-src 'self'`, no inline scripts, no third-party origins), HSTS, `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy`, `Permissions-Policy`, COOP. `/admin/` is `noindex`. Every generated page (and `/admin/`) also carries the CSP as a `<meta>` tag, so hosts that ignore `_headers` — GitHub Pages, S3, the dev server — still enforce it. |
 | **Privacy** | No cookies, analytics, web fonts or third-party requests by default. |
 | **Agents** | MCP tools are confined to `content/*.md`, have no delete, and are gated by `agents.allowed` / `agents.allowWrite`. |
 | **Supply chain** | Two runtime dependencies; CI runs `npm audit --audit-level=high`. |
