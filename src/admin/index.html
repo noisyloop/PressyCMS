@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dashboard ‹ PressyCMS</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/blocks.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="marked.umd.js" defer></script>
+  <script src="pressy-core.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div id="adminbar" class="adminbar">
+    <a class="ab-logo" href="#dashboard" aria-label="PressyCMS dashboard"><span>P</span></a>
+    <a class="ab-site" href="/" id="ab-site">PressyCMS</a>
+    <a class="ab-new" href="#new">＋ New</a>
+    <span class="ab-spacer"></span>
+    <span class="ab-note">Static dashboard · publishing goes through GitHub</span>
+  </div>
+  <div class="shell">
+    <nav class="menu" aria-label="Admin">
+      <ul>
+        <li><a href="#dashboard" data-route="dashboard"><span aria-hidden="true">🏠</span> Dashboard</a></li>
+        <li><a href="#posts" data-route="posts"><span aria-hidden="true">📌</span> Posts</a></li>
+        <li><a href="#pages" data-route="pages"><span aria-hidden="true">📄</span> Pages</a></li>
+        <li><a href="#new" data-route="new"><span aria-hidden="true">✏️</span> Editor</a></li>
+        <li><a href="#blocks" data-route="blocks"><span aria-hidden="true">🧱</span> Blocks</a></li>
+        <li><a href="#appearance" data-route="appearance"><span aria-hidden="true">🎨</span> Appearance</a></li>
+        <li><a href="#plugins" data-route="plugins"><span aria-hidden="true">🔌</span> Plugins</a></li>
+        <li><a href="#health" data-route="health"><span aria-hidden="true">🩺</span> Site Health</a></li>
+        <li><a href="#agents" data-route="agents"><span aria-hidden="true">🤖</span> Claude</a></li>
+      </ul>
+    </nav>
+    <main id="view" class="view" tabindex="-1">
+      <p class="loading">Loading…</p>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

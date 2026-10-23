@@ -1,0 +1,5 @@
+<main id="main" class="column">
+  {{#if isFirstPage}}<p class="intro">{{site.description}}</p>{{/if}}
+  <ol class="items">{{#each posts}}{{> item}}{{/each}}</ol>
+  {{#if pagination}}<nav class="pager" aria-label="Pagination">{{#if pagination.prev}}<a href="{{pagination.prev}}" rel="prev">← Newer</a>{{/if}} <span>{{pagination.current}} / {{pagination.total}}</span> {{#if pagination.next}}<a href="{{pagination.next}}" rel="next">Older →</a>{{/if}}</nav>{{/if}}
+</main>

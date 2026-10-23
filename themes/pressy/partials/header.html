@@ -1,0 +1,18 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">P</span>
+      <span class="brand-text"><span class="brand-name">{{site.title}}</span>{{#if site.tagline}}<span class="brand-tagline">{{site.tagline}}</span>{{/if}}</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        {{#each nav}}<li><a href="{{href}}"{{#if active}} aria-current="page"{{/if}}>{{label}}</a></li>
+        {{/each}}
+      </ul>
+    </nav>
+    {{#if searchEnabled}}<form class="header-search" action="/search/" method="get" role="search">
+      <label class="sr-only" for="header-q">Search</label>
+      <input id="header-q" name="q" type="search" placeholder="Search…">
+    </form>{{/if}}
+  </div>
+</header>

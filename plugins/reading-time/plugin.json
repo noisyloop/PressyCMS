@@ -1,0 +1,7 @@
+{
+  "name": "reading-time",
+  "title": "Reading Time",
+  "version": "1.0.0",
+  "description": "Adds an estimated reading time (\"4 min read\") to every post.",
+  "permissions": ["filters"]
+}

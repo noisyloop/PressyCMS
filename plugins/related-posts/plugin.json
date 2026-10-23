@@ -1,0 +1,7 @@
+{
+  "name": "related-posts",
+  "title": "Related Posts",
+  "version": "1.0.0",
+  "description": "Suggests related posts using shared tags and categories. Computed at build time — no database queries on every page view.",
+  "permissions": ["filters"]
+}

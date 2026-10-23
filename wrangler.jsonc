@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static assets. `npm run build` first, then `npx wrangler deploy`.
+  // Cloudflare Pages also works: build command `npm run build`, output directory `dist`.
+  "name": "pressycms",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "search",
+  "title": "Instant Search",
+  "version": "1.0.0",
+  "description": "Client-side search over a JSON index generated at build time. No search server, no third-party scripts, works offline.",
+  "permissions": ["files", "pages", "assets"]
+}

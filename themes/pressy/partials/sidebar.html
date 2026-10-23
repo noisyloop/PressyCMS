@@ -1,0 +1,22 @@
+<aside class="sidebar" aria-label="Sidebar">
+  {{#if searchEnabled}}<section class="widget">
+    <h2 class="widget-title">Search</h2>
+    <form action="/search/" method="get" role="search" class="widget-search">
+      <label class="sr-only" for="side-q">Search posts</label>
+      <input id="side-q" name="q" type="search" placeholder="Lorem ipsum…">
+      <button type="submit">Search</button>
+    </form>
+  </section>{{/if}}
+  <section class="widget">
+    <h2 class="widget-title">Recent posts</h2>
+    <ul class="widget-list">{{#each sidebar.recent}}<li><a href="{{path}}">{{title}}</a><span>{{dateDisplay}}</span></li>{{/each}}</ul>
+  </section>
+  <section class="widget">
+    <h2 class="widget-title">Categories</h2>
+    <ul class="widget-list">{{#each sidebar.categories}}<li><a href="{{url}}">{{name}}</a> <span class="count">{{count}}</span></li>{{/each}}</ul>
+  </section>
+  {{#if sidebar.tags}}<section class="widget">
+    <h2 class="widget-title">Tags</h2>
+    <p class="tag-cloud">{{#each sidebar.tags}}<a href="{{url}}">{{name}}</a> {{/each}}</p>
+  </section>{{/if}}
+</aside>

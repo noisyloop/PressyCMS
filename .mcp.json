@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pressy": {
+      "command": "node",
+      "args": ["bin/pressy.js", "mcp"]
+    }
+  }
+}

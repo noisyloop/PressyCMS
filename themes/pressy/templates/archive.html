@@ -1,0 +1,13 @@
+<main id="main">
+  <header class="archive-header">
+    <div class="wrap">
+      <p class="eyebrow">{{archive.kind}}</p>
+      <h1>{{archive.name}}</h1>
+      <p class="lead">{{archive.count}} post(s)</p>
+    </div>
+  </header>
+  <div class="wrap with-sidebar">
+    <section><div class="post-list">{{#each posts}}{{> card}}{{/each}}</div></section>
+    {{> sidebar}}
+  </div>
+</main>
