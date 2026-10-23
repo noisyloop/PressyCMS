@@ -1,0 +1,28 @@
+{
+  "site": {
+    "title": "PressyCMS",
+    "tagline": "Not another CMS",
+    "description": "Lorem ipsum dolor sit amet — a database-free CMS where every page is a markdown file in GitHub.",
+    "url": "https://pressycms.pages.dev",
+    "language": "en",
+    "author": "PressyCMS Team"
+  },
+  "theme": "pressy",
+  "plugins": ["reading-time", "toc", "related-posts", "search", "redirects"],
+  "pluginOptions": {
+    "reading-time": { "wordsPerMinute": 225 },
+    "related-posts": { "limit": 3 },
+    "toc": { "levels": [2, 3], "title": "On this page" }
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Blocks", "href": "/blocks/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Search", "href": "/search/" }
+  ],
+  "postsPerPage": 5,
+  "markdown": { "allowRawHtml": false },
+  "admin": { "enabled": true },
+  "github": { "repo": "noisyloop/PressyCMS", "branch": "main", "contentDir": "content" },
+  "agents": { "allowed": ["claude"], "allowWrite": true }
+}

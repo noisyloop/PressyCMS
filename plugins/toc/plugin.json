@@ -1,0 +1,7 @@
+{
+  "name": "toc",
+  "title": "Table of Contents",
+  "version": "1.0.0",
+  "description": "Adds a :::toc block and an automatic table of contents for posts with `toc: true` in front matter.",
+  "permissions": ["filters", "blocks"]
+}

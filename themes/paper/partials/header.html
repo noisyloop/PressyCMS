@@ -1,0 +1,5 @@
+<header class="masthead">
+  <a class="masthead-title" href="/">{{site.title}}</a>
+  {{#if site.tagline}}<p class="masthead-tagline">{{site.tagline}}</p>{{/if}}
+  <nav aria-label="Primary"><ul>{{#each nav}}<li><a href="{{href}}"{{#if active}} aria-current="page"{{/if}}>{{label}}</a></li>{{/each}}</ul></nav>
+</header>

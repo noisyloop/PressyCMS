@@ -1,0 +1,7 @@
+{
+  "name": "redirects",
+  "title": "Redirects",
+  "version": "1.0.0",
+  "description": "Manage redirects in redirects.json (301s for moved pages, 302s for short links like /go/<name>). Preserves SEO when URLs change.",
+  "permissions": ["redirects", "files"]
+}

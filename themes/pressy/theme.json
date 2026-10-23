@@ -1,0 +1,14 @@
+{
+  "title": "Pressy",
+  "version": "1.0.0",
+  "description": "The default theme. A classic blog layout with a sidebar, featured posts and a wide landing template — familiar if you've used WordPress.",
+  "screenshot": "docs/screenshots/home.png",
+  "templates": {
+    "post": "Standard post with sidebar",
+    "page": "Standard page",
+    "landing": "Full-width canvas — no sidebar, no title. Build the page from blocks.",
+    "home": "Front page",
+    "archive": "Category and tag listings",
+    "404": "Not found"
+  }
+}

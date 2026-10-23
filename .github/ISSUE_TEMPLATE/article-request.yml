@@ -1,0 +1,30 @@
+name: Article request (Claude)
+description: Ask Claude to draft a post. It opens a pull request for you to review.
+title: "Article: "
+labels: [article-request]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      placeholder: Lorem ipsum dolor sit amet
+    validations:
+      required: true
+  - type: dropdown
+    id: template
+    attributes:
+      label: Template
+      options: [post, page, landing]
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, outline or source material
+      description: Bullet points are fine. Claude will follow CLAUDE.md and run the linter.
+  - type: checkboxes
+    id: blocks
+    attributes:
+      label: Blocks to include
+      options:
+        - label: FAQ (rich results)
+        - label: Callout
+        - label: Columns / cards

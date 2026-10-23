@@ -1,0 +1,9 @@
+<article class="card">
+  {{#if image}}<a class="card-image" href="{{path}}" tabindex="-1" aria-hidden="true"><img src="{{image}}" alt="{{imageAlt}}" loading="lazy" decoding="async"></a>{{/if}}
+  <div class="card-body">
+    {{#if category}}<a class="card-cat" href="{{categoryUrl}}">{{category}}</a>{{/if}}
+    <h2 class="card-title"><a href="{{path}}">{{title}}</a></h2>
+    <p class="card-excerpt">{{excerpt}}</p>
+    <p class="card-meta"><time datetime="{{date}}">{{dateDisplay}}</time>{{#if readingTime}} · {{readingTime}}{{/if}}</p>
+  </div>
+</article>

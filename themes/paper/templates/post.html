@@ -1,0 +1,16 @@
+<main id="main" class="column">
+  <article>
+    <header class="article-head">
+      <p class="kicker">{{#if doc.category}}<a href="{{doc.categoryUrl}}">{{doc.category}}</a> · {{/if}}<time datetime="{{doc.date}}">{{doc.dateDisplay}}</time>{{#if doc.readingTime}} · {{doc.readingTime}}{{/if}}</p>
+      <h1>{{doc.title}}</h1>
+      {{#if doc.description}}<p class="standfirst">{{doc.description}}</p>{{/if}}
+    </header>
+    {{#if doc.image}}<figure class="hero-image"><img src="{{doc.image}}" alt="{{doc.imageAlt}}" decoding="async"></figure>{{/if}}
+    <div class="prose">{{{doc.html}}}</div>
+    <footer class="article-foot">
+      {{#if doc.tags}}<p>{{#each doc.tags}}<a href="{{url}}" rel="tag">#{{name}}</a> {{/each}}</p>{{/if}}
+      {{#if doc.related}}<p class="more">Read next: {{#each doc.related}}<a href="{{path}}">{{title}}</a>{{#unless @last}} · {{/unless}}{{/each}}</p>{{/if}}
+      {{#if doc.editUrl}}<p><a href="{{doc.editUrl}}" rel="nofollow noopener" target="_blank">Suggest an edit</a></p>{{/if}}
+    </footer>
+  </article>
+</main>

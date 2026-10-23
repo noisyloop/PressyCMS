@@ -1,0 +1,27 @@
+<main id="main" class="wrap with-sidebar">
+  <article class="entry" itemscope itemtype="https://schema.org/BlogPosting">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">›</span> {{#if doc.category}}<a href="{{doc.categoryUrl}}">{{doc.category}}</a> <span aria-hidden="true">›</span> {{/if}}<span aria-current="page">{{doc.title}}</span></nav>
+    <header class="entry-header">
+      {{#if doc.category}}<a class="card-cat" href="{{doc.categoryUrl}}">{{doc.category}}</a>{{/if}}
+      <h1 class="entry-title" itemprop="headline">{{doc.title}}</h1>
+      <p class="entry-meta">By <span itemprop="author">{{doc.author}}</span> · <time datetime="{{doc.date}}" itemprop="datePublished">{{doc.dateDisplay}}</time>{{#if doc.updatedDisplay}} · Updated <time datetime="{{doc.updated}}">{{doc.updatedDisplay}}</time>{{/if}}{{#if doc.readingTime}} · {{doc.readingTime}}{{/if}}</p>
+    </header>
+    {{#if doc.image}}<figure class="entry-image"><img src="{{doc.image}}" alt="{{doc.imageAlt}}" decoding="async"></figure>{{/if}}
+    <div class="entry-content" itemprop="articleBody">
+      {{{doc.html}}}
+    </div>
+    <footer class="entry-footer">
+      {{#if doc.tags}}<p class="entry-tags">Tagged: {{#each doc.tags}}<a href="{{url}}" rel="tag">{{name}}</a> {{/each}}</p>{{/if}}
+      {{#if doc.editUrl}}<p class="entry-edit"><a href="{{doc.editUrl}}" rel="nofollow noopener" target="_blank">✏️ Suggest an edit on GitHub</a></p>{{/if}}
+    </footer>
+    {{#if doc.related}}<section class="related" aria-labelledby="related-title">
+      <h2 id="related-title">Related posts</h2>
+      <ul>{{#each doc.related}}<li><a href="{{path}}">{{title}}</a></li>{{/each}}</ul>
+    </section>{{/if}}
+    <nav class="post-nav" aria-label="More posts">
+      {{#if doc.newer}}<a href="{{doc.newer.path}}" rel="prev"><span>← Newer</span>{{doc.newer.title}}</a>{{/if}}
+      {{#if doc.older}}<a class="older" href="{{doc.older.path}}" rel="next"><span>Older →</span>{{doc.older.title}}</a>{{/if}}
+    </nav>
+  </article>
+  {{> sidebar}}
+</main>

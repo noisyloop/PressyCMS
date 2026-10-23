@@ -1,0 +1,13 @@
+{
+  "title": "Paper",
+  "version": "1.0.0",
+  "description": "A quiet, single-column reading theme with serif typography. No sidebar, no distractions — just words.",
+  "templates": {
+    "post": "Long-form article",
+    "page": "Simple page",
+    "landing": "Full-width canvas for block-built pages",
+    "home": "Front page list",
+    "archive": "Category and tag listings",
+    "404": "Not found"
+  }
+}
