@@ -4,7 +4,7 @@
 
 > Write a markdown file → push to GitHub → your site updates.
 
-![PressyCMS home page](docs/screenshots/home.png)
+![Save a markdown file and the page is live](docs/gifs/markdown-to-page.gif)
 
 - 🗄️ **No database.** Every post and page is a markdown file in `content/`. Git is your revision history, backup and editorial workflow.
 - 🧱 **Elementor-style blocks in markdown.** Hero, columns, cards, stats, callouts, FAQ, testimonials and more. Drag them in from the visual editor or type `:::callout`.
@@ -13,6 +13,20 @@
 - 🔒 **Secure by default.** Static output, strict CSP, raw HTML escaped, URL schemes filtered, no cookies or third-party requests.
 - 📈 **SEO built in.** Sitemap, robots.txt, RSS, canonical URLs, Open Graph, JSON-LD (BlogPosting, Breadcrumbs, FAQPage, WebSite), `llms.txt`, a content linter, and builds that fail on broken links.
 - 🤖 **Agent-ready (Claude).** A bundled MCP server, `@claude` GitHub workflow, Claude skills, an "Ask Claude" button in the editor, and machine-readable twins of every page.
+
+## See it in action
+
+**Build pages like Elementor: drag blocks into the editor and watch the live preview and SEO checks update.**
+
+![Drag-and-drop block editor](docs/gifs/editor.gif)
+
+**A WordPress-style dashboard with no backend.**
+
+![Dashboard tour](docs/gifs/admin-tour.gif)
+
+| Same content, two themes | Instant search, no server |
+|---|---|
+| ![Switching between the Pressy and Paper themes](docs/gifs/themes.gif) | ![Instant client-side search](docs/gifs/search.gif) |
 
 ## Quick start
 
@@ -50,6 +64,8 @@ Dolor sit amet.
 Push it and you're done. CI runs tests, the content linter and the build, and your host deploys `dist/`.
 
 ## Screenshots
+
+![PressyCMS home page](docs/screenshots/home.png)
 
 ### Posts, pages and blocks
 
@@ -117,7 +133,8 @@ plugins/<enabled>/ ─┘      here, then stop)     _headers, _redirects)
 | `npx pressy serve --theme paper` | Preview another theme without changing config |
 | `npx pressy themes \| plugins \| blocks` | List what's installed |
 | `npx pressy mcp` | MCP server for Claude (stdio) |
-| `npm run screenshots` | Regenerate these screenshots (needs Playwright) |
+| `npm run screenshots` | Regenerate the screenshots (needs Playwright) |
+| `npm run gifs` | Re-record the README GIFs (needs Playwright + ffmpeg) |
 
 ## Contributing articles via GitHub
 

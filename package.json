@@ -18,7 +18,8 @@
     "new": "node bin/pressy.js new",
     "mcp": "node bin/pressy.js mcp",
     "test": "node --test test/*.test.js",
-    "screenshots": "node scripts/screenshots.js"
+    "screenshots": "node scripts/screenshots.js",
+    "gifs": "node scripts/gifs.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

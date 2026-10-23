@@ -450,7 +450,7 @@
     const route = (location.hash.slice(1) || 'dashboard').split('?')[0];
     const fn = routes[route] || routes.dashboard;
     document.querySelectorAll('.menu a').forEach((a) => a.toggleAttribute('aria-current', a.dataset.route === route));
-    view.replaceChildren(...fn().flat());
+    view.replaceChildren(...fn().flat().filter((n) => n != null && n !== false));
     document.title = `${(document.querySelector('.menu a[aria-current]') || {}).textContent || 'Dashboard'} ‹ ${DATA.site.title}`.replace(/^\W+\s*/, '');
     view.focus({ preventScroll: true });
     window.scrollTo(0, 0);
