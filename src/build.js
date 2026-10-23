@@ -200,6 +200,7 @@ async function build({ root = process.cwd(), outDir, includeDrafts = false, quie
     const body = engine.render(theme.templates[template], data, `templates/${template}.html`);
     let html = engine.render(theme.layout, { ...data, body }, 'layout.html');
     html = await host.applyFilters('html', html, { template, path: pagePath, doc });
+    html = seo.injectMetaCsp(html, config);
     const file = pagePath.endsWith('.html') ? path.join(DIST, pagePath) : path.join(DIST, pagePath, 'index.html');
     writeFile(file, html);
     if (!noindex && !pagePath.endsWith('.html')) pagesOut.push({ loc: canonical, lastmod: doc && doc.updated ? doc.updated : '' });
@@ -297,6 +298,8 @@ async function build({ root = process.cwd(), outDir, includeDrafts = false, quie
   // Admin dashboard (static, read-only — publishing happens through GitHub).
   if (config.admin.enabled) {
     copyDir(path.join(__dirname, 'admin'), path.join(DIST, 'admin'));
+    const adminIndex = path.join(DIST, 'admin', 'index.html');
+    writeFile(adminIndex, seo.injectMetaCsp(fs.readFileSync(adminIndex, 'utf8'), config));
     fs.copyFileSync(path.join(__dirname, 'shared', 'pressy-core.js'), path.join(DIST, 'admin', 'pressy-core.js'));
     fs.copyFileSync(path.join(path.dirname(require.resolve('marked')), 'marked.umd.js'), path.join(DIST, 'admin', 'marked.umd.js'));
     for (const t of listThemes(root)) {

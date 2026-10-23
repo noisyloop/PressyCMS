@@ -17,6 +17,12 @@ test('full build produces SEO outputs and no broken links', async () => {
   assert.match(home, /<link rel="canonical" href="https:\/\/[^"]+\/">/);
   assert.match(home, /application\/ld\+json/);
   assert.match(fs.readFileSync(path.join(out, '_headers'), 'utf8'), /Content-Security-Policy: default-src 'self'/);
+  // Hosts that ignore _headers still get the policy as a meta tag.
+  for (const f of ['index.html', 'admin/index.html']) {
+    const html = fs.readFileSync(path.join(out, f), 'utf8');
+    assert.match(html, /<meta charset="utf-8">\s*<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39;/, f);
+    assert.ok(!/http-equiv="Content-Security-Policy"[^>]*frame-ancestors/.test(html), f);
+  }
   assert.match(fs.readFileSync(path.join(out, 'robots.txt'), 'utf8'), /Sitemap: /);
   fs.rmSync(out, { recursive: true, force: true });
 });
